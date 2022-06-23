@@ -1,0 +1,76 @@
+<%- include('includes/head') %> 
+    <div class="custom-position">
+      <h1 class="custom-main-heading glow">
+        <%= day %>
+      </h1>
+      <h3 class="custom-time-heading solid-text" id="exact-time">
+        <%= time %>
+      </h3>
+      <h3 class="custom-sub-heading solid-text">
+        <%= date %>
+      </h3>
+    </div>
+
+    <div class="custom-list-container">
+      <div class="list-group" style="width: 40%;">
+
+        <% for(let i=0 ; i < tasks.length ; i++) { %>
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between" id="list-<%= i %>">
+            <h5 class="mb-1">
+              <%= tasks[i][0]%>
+            </h5>
+            <small class="centered-box">
+              <div id="timeleft-<%=i%>" class="timeleft">Time</div>
+              <div id="time-<%=i%>" class="mx-1">
+                <%= tasks[i][1] %> mins
+              </div>
+            </small>
+          </div>
+          <!-- <p class="centered-box"> -->
+          <form id="utility-form" class="centered-box" action="/delete" method="post">
+            <button class="btn btn-success btn-sm" id="start-<%=i%>" name="start-<%=i%>" onclick="start(this)">start</button>
+            <button class="btn btn-danger mx-3 btn-sm" type="submit" id="end-<%=i%>" name="deletedTaskId" value="<%=i%>" onclick="end(this)" disabled>end</button>
+          </form>
+          <!-- </p> -->
+        </div>
+        <% } %>
+
+        <form style=" padding-top: 10px;" method="POST" action="/add-task">
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <input class="list-group-item list-group-item-action flex-column align-items-start" type="text" placeholder="Task Name" name="task_name" id="task_name" maxlength="40" required>
+            <input class="list-group-item list-group-item-action flex-column align-items-start" type="number" placeholder="Time Limit(minutes)" name="task_time_limit" id="task_time_limit" min="1" max="<%= 24*60 - 1 %>" required>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <button id="addTaskBtn" type="submit" class="btn btn-success" style="width: 10%;">⨁</button>
+          </div>
+        </form>
+
+        <!-- <% if(completedTasks.length> 0) {%>
+        <div class="custom-position my-3">
+          <h3 class="custom-time-heading glow" id="exact-time" style="color:rgb(255, 255, 255)">Completed Tasks</h3>
+        </div>
+        <% for(let i = 0; i < completedTasks.length; i++) { %>
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between" id="completed-<%= i %>">
+            <h5 class="mb-1">
+              <%= completedTasks[i][0] %>
+            </h5>
+            <small class="centered-box">
+              <div id="timeleft-<%=i%>" class="timeleft">Time Taken - </div>
+              <div id="time-<%=i%>" class="mx-1">
+                <%= completedTasks[i][1] %> mins
+              </div>
+            </small>
+          </div>
+        </div>
+        <% } %>
+        <% } %> -->
+
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="script/script.js"></script>
+
+  <%- include('includes/footer') %> 

@@ -1,0 +1,80 @@
+.custom-position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glow {
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(255, 255, 255) 0px 0px 10px;
+    --darkreader-inline-color: #e8e6e3;
+    --darkreader-inline-bgimage: initial;
+    --darkreader-inline-bgcolor: #74231b;
+}
+
+.solid-text {
+    color: #ffffff;
+    text-shadow: rgb(34, 2, 87) 3px 5px 2px;
+    --darkreader-inline-color: #e8e6e3;
+    --darkreader-inline-bgimage: initial;
+    --darkreader-inline-bgcolor: #765252;
+}
+
+.custom-main-heading {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 80px;
+    letter-spacing: -0.4px;
+    word-spacing: -1.4px;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    margin-top: 50px;
+}
+
+.custom-sub-heading {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 25px;
+    letter-spacing: -0.4px;
+    word-spacing: -1.4px;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+}
+
+.custom-time-heading {
+    font-family: "Lucida Console", Monaco;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+}
+
+.custom-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.centered-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+}
+
+.disappear {
+    visibility: none;
+}
+
+.test-color {
+    color: #ffffff;
+    color: red;
+}
