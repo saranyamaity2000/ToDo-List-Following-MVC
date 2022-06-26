@@ -14,23 +14,23 @@
     <div class="custom-list-container">
       <div class="list-group" style="width: 40%;">
 
-        <% for(let i=0 ; i < tasks.length ; i++) { %>
+        <% for(let i= 0 ; i < tasks.length ; i++) { %>
         <div class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between" id="list-<%= i %>">
             <h5 class="mb-1">
-              <%= tasks[i][0]%>
+              <%= tasks[i].task_name %>
             </h5>
             <small class="centered-box">
               <div id="timeleft-<%=i%>" class="timeleft">Time</div>
               <div id="time-<%=i%>" class="mx-1">
-                <%= tasks[i][1] %> mins
+                <%= tasks[i].task_time_limit %> mins
               </div>
             </small>
           </div>
           <!-- <p class="centered-box"> -->
           <form id="utility-form" class="centered-box" action="/delete" method="post">
             <button class="btn btn-success btn-sm" id="start-<%=i%>" name="start-<%=i%>" onclick="start(this)">start</button>
-            <button class="btn btn-danger mx-3 btn-sm" type="submit" id="end-<%=i%>" name="deletedTaskId" value="<%=i%>" onclick="end(this)" disabled>end</button>
+            <button class="btn btn-danger mx-3 btn-sm" type="submit" id="end-<%=i%>" name="deletedTaskId" value="<%=tasks[i]._id%>" onclick="end(this)" disabled>end</button>
           </form>
           <!-- </p> -->
         </div>
@@ -45,28 +45,6 @@
             <button id="addTaskBtn" type="submit" class="btn btn-success" style="width: 10%;">⨁</button>
           </div>
         </form>
-
-        <!-- <% if(completedTasks.length> 0) {%>
-        <div class="custom-position my-3">
-          <h3 class="custom-time-heading glow" id="exact-time" style="color:rgb(255, 255, 255)">Completed Tasks</h3>
-        </div>
-        <% for(let i = 0; i < completedTasks.length; i++) { %>
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between" id="completed-<%= i %>">
-            <h5 class="mb-1">
-              <%= completedTasks[i][0] %>
-            </h5>
-            <small class="centered-box">
-              <div id="timeleft-<%=i%>" class="timeleft">Time Taken - </div>
-              <div id="time-<%=i%>" class="mx-1">
-                <%= completedTasks[i][1] %> mins
-              </div>
-            </small>
-          </div>
-        </div>
-        <% } %>
-        <% } %> -->
-
       </div>
     </div>
   </div>
