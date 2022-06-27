@@ -43,17 +43,13 @@ exports.addTask = (req, res) => {
 exports.deleteTask = (req, res) => {
     const input = req.body;
     console.log(input);
-    
     const deletedTaskid = input.deletedTaskId;
-
-    setTimeout(() => {
-        Task.findByIdAndRemove(deletedTaskid, err => {
-            if (err) {
-                res.send("Sorry! Internal Deletion failed but your data was deleted")
-            } else {
-                res.redirect('/');
-            }
-        });
-    }, 500); // needed delay for refletion provided js animation!
+    Task.findByIdAndRemove(deletedTaskid, err => {
+        if (err) {
+            res.send("Sorry! Internal Deletion failed but your data was deleted")
+        } else {
+            res.redirect('/');
+        }
+    });
 };
 
