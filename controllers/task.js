@@ -42,6 +42,8 @@ exports.addTask = (req, res) => {
 
 exports.deleteTask = (req, res) => {
     const input = req.body;
+    console.log(input);
+    
     const deletedTaskid = input.deletedTaskId;
 
     setTimeout(() => {
