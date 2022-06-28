@@ -7,6 +7,8 @@ const app = express();
 const listRoute = require('./routers/list');
 const errorController = require('./controllers/error');
 const mongoose = require('mongoose');
+const Task = require('../models/task');
+
 const DATABASE_NAME = "ToDoList";
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
@@ -23,6 +25,19 @@ app.use(bp.urlencoded({ extended: true }));
 app.use('/', listRoute);
 
 app.use(errorController.get404);
+
+setInterval(() => {
+    const conditions = {};
+    Task.find(conditions, (err, foundTasks) => {
+        if (err) {
+            res.send("Sorry! Something went wrong! while retrieving tasks!");
+        } else {
+            for(let task of foundTasks) {
+                
+            }
+        }
+    });
+}, 60000);
 
 mongoose.connect(localDB, { useNewUrlParser: true })
     .then(result => {

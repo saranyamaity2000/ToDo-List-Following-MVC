@@ -15,11 +15,19 @@ const getCurrentTime = () => {
     else
         type = "AM";
 
+    let hours, mins, secs;
     if (today.getHours() >= 13) {
-        todayTime = (today.getHours() - 12) + ":" + today.getMinutes() + ":" + today.getSeconds() + " " + type;
+        hours = String(today.getHours() - 12), mins = String(today.getMinutes()), secs = String(today.getSeconds());
     } else {
-        todayTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " " + type;
+        hours = String(today.getHours()), mins = String(today.getMinutes()), secs = String(today.getSeconds());
     }
+    if (hours.length < 1) hours = "0" + hours;
+    if (hours.length < 2) hours = "0" + hours;
+    if (mins.length < 1) mins = "0" + mins;
+    if (mins.length < 2) mins = "0" + mins;
+    if (secs.length < 1) secs = "0" + secs;
+    if (secs.length < 2) secs = "0" + secs;
+    todayTime = hours + ":" + mins + ":" + secs + " " + type;
     return [todayTime, todayDay, todayDate];
 }
 
